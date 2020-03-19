@@ -1,26 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
+import RecipeForm from './components/RecipeForm';
 import Main from './components/Main';
 import Footer from './components/Footer';
+import { ID, getRecipe, getRecipeIndex, updateRecipeArray } from './_helpers';
 import sampleRecipes from './assets/recipes';
 import './App.scss';
 
 function App() {
   const [localRecipes, setLocalRecipes] = useState([]);
-
-  function ID() {
-    return (
-      '_' +
-      Math.random()
-        .toString(36)
-        .substr(2, 9)
-    );
-  }
+  const [addingRecipe, setAddingRecipe] = useState(false);
 
   useEffect(() => {
     let storedRecipes = JSON.parse(window.localStorage.getItem('rbRecipes'));
 
-    if (storedRecipes.length > 0) {
+    if (storedRecipes) {
       setLocalRecipes(storedRecipes);
     } else {
       let idfiedRecipes = [];
@@ -41,17 +35,19 @@ function App() {
   }
 
   function saveRecipe(id, itemsKey, changedItems) {
-    let updatedRecipe = localRecipes.filter(recipe => recipe.id === id)[0];
+    let updatedRecipe = getRecipe(localRecipes, id);
     updatedRecipe[itemsKey] = changedItems;
-    let index = localRecipes.findIndex(recipe => recipe.id === id);
-    let updatedLocalRecipes = [...localRecipes];
-    updatedLocalRecipes[index] = updatedRecipe;
-    setLocalRecipes(updatedLocalRecipes);
+    let index = getRecipeIndex(localRecipes, id);
+    setLocalRecipes(updateRecipeArray(localRecipes, updatedRecipe, index));
+  }
+
+  function showRecipeForm() {
+    setAddingRecipe(true);
   }
 
   return (
     <>
-      <Header />
+      <Header showRecipeForm={showRecipeForm} />
       <Main
         recipes={localRecipes}
         deleteRecipe={deleteRecipe}

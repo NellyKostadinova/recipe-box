@@ -5,18 +5,24 @@ import RecipeGrid from './RecipeGrid';
 
 function Main(props) {
   const [focusRecipe, setFocusRecipe] = useState(null);
-  const [editing, setEditing] = useState(false);
+  const [newRecipe, setNewRecipe] = useState({
+    title: 'My New Recipe',
+    categories: [],
+    imgUrl: '',
+    ingredients: [],
+    instructions: [],
+    difficulty: 0
+  });
 
   function openRecipe(recipe) {
     setFocusRecipe(recipe);
   }
 
   function closeRecipe() {
-    setEditing(false);
     setFocusRecipe(null);
   }
 
-  function deleteRecipe(id) {
+  function handleDelete(id) {
     closeRecipe();
     props.deleteRecipe(id);
   }
@@ -28,7 +34,7 @@ function Main(props) {
           {...focusRecipe}
           closeRecipe={closeRecipe}
           saveRecipe={props.saveRecipe}
-          deleteRecipe={deleteRecipe}
+          deleteRecipe={handleDelete}
         />
       ) : (
         <RecipeGrid recipes={props.recipes} openRecipe={openRecipe} />

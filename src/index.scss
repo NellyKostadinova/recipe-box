@@ -71,6 +71,15 @@ button {
     border: 2px solid $main-light;
   }
 
+  &.add {
+    padding: 0em 0.5em;
+    margin-top: 10px;
+  }
+
+  &.sm {
+    font-size: 14px;
+  }
+
   + button {
     margin-left: 20px;
   }

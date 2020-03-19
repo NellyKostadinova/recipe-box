@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './RecipeSection.scss';
 
 function RecipeSection(props) {
   const [editing, setEditing] = useState(false);
@@ -27,7 +28,7 @@ function RecipeSection(props) {
   internalItems.map((item, index) => {
     editing
       ? _items.push(
-          <li key={item}>
+          <li key={index}>
             <input
               index={index}
               onBlur={e => handleChange(index, e.target.value)}
@@ -35,24 +36,32 @@ function RecipeSection(props) {
             />
           </li>
         )
-      : _items.push(<li key={item}>{item}</li>);
+      : _items.push(<li key={index}>{item}</li>);
   });
 
   return (
-    <div className={props.className}>
-      <button className="edit" onClick={editing ? handleSave : handleEdit}>
+    <div className={props.className + ' recipe-section'}>
+      <button className="edit sm" onClick={editing ? handleSave : handleEdit}>
         {editing ? 'Save' : 'Edit'}
       </button>
       <h2>{props.title}</h2>
       {props.ordered ? (
         <ol>
           {_items}
-          {editing && <button onClick={addListItem}>+</button>}
+          {editing && (
+            <button className="add sm" onClick={addListItem}>
+              +
+            </button>
+          )}
         </ol>
       ) : (
         <ul>
           {_items}
-          {editing && <button onClick={addListItem}>+</button>}
+          {editing && (
+            <button className="add sm" onClick={addListItem}>
+              +
+            </button>
+          )}
         </ul>
       )}
     </div>

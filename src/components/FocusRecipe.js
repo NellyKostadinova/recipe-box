@@ -1,6 +1,9 @@
 import React from 'react';
+import RecipeTitle from './RecipeTitle';
+import TagList from './TagList';
 import DifficultyLevel from './DifficultyLevel';
 import RecipeSection from './RecipeSection';
+import RecipeImage from './RecipeImage';
 import './FocusRecipe.scss';
 
 function FocusRecipe(props) {
@@ -17,7 +20,12 @@ function FocusRecipe(props) {
       </button>
       <article className="focus-recipe">
         <div className="recipe-info">
-          <h1>{props.title}</h1>
+          <RecipeTitle
+            title={props.title}
+            id={props.id}
+            saveRecipe={props.saveRecipe}
+          />
+          <TagList tags={props.categories} />
           <DifficultyLevel level={props.difficulty} />
           <RecipeSection
             id={props.id}
@@ -38,9 +46,12 @@ function FocusRecipe(props) {
             saveRecipe={props.saveRecipe}
           />
         </div>
-        <div className="recipe-image">
-          <img src={props.imgUrl} alt={props.title}></img>
-        </div>
+        <RecipeImage
+          id={props.id}
+          title={props.title}
+          imgUrl={props.imgUrl}
+          saveRecipe={props.saveRecipe}
+        />
       </article>
     </section>
   );

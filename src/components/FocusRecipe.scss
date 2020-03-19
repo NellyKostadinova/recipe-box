@@ -2,6 +2,7 @@
 
 .focus-recipe {
   display: flex;
+  align-items: flex-start;
   margin-top: 40px;
 
   h1,
@@ -9,9 +10,13 @@
     font-weight: 600;
     font-size: 2em;
     margin-top: 0px;
-    margin-bottom: 1em;
+    margin-bottom: 0px;
     padding: 10px 0px;
     width: 100%;
+  }
+
+  .tag-list {
+    margin-bottom: 20px;
   }
 
   .recipe-info {
@@ -21,10 +26,34 @@
 
   .recipe-image {
     width: 40%;
+    position: relative;
+
+    .edit {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      opacity: 0;
+      transition: opacity 300ms;
+    }
+
+    &:hover {
+      .edit {
+        opacity: 1;
+      }
+    }
 
     img {
+      display: block;
       border-radius: 20px;
       box-shadow: $shadow;
+      width: 100%;
+      height: auto;
+      min-height: 60px;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 20px;
     }
   }
 }

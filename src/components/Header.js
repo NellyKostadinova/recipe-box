@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.scss';
 
-function Header() {
+function Header(props) {
   return (
     <header>
       <div className="container">
@@ -10,7 +10,9 @@ function Header() {
           <h2>Recipe Box</h2>
         </div>
         <nav>
-          <button className="add">Add new recipe</button>
+          <button className="add-recipe" onClick={props.showRecipeForm}>
+            Add new recipe
+          </button>
           <button className="list">Shopping List</button>
         </nav>
       </div>
