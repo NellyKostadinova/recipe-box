@@ -1,0 +1,30 @@
+@import '../_styles/abstracts';
+
+.focus-recipe {
+  display: flex;
+  margin-top: 40px;
+
+  h1,
+  input.recipe-title {
+    font-weight: 600;
+    font-size: 2em;
+    margin-top: 0px;
+    margin-bottom: 1em;
+    padding: 10px 0px;
+    width: 100%;
+  }
+
+  .recipe-info {
+    width: 60%;
+    padding-right: 80px;
+  }
+
+  .recipe-image {
+    width: 40%;
+
+    img {
+      border-radius: 20px;
+      box-shadow: $shadow;
+    }
+  }
+}

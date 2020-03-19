@@ -1,0 +1,10 @@
+@import '../_styles/abstracts';
+
+.category-tag {
+  display: inline-block;
+  padding: 0px 10px;
+  margin-right: 5px;
+  border-radius: 20px;
+  font-size: 14px;
+  border: 2px solid $green;
+}

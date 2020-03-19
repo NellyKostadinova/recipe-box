@@ -1,0 +1,23 @@
+@import '../_styles/abstracts';
+
+footer {
+  background-color: $main-dark;
+  padding: 20px 0px;
+
+  * {
+    color: $main-light;
+  }
+
+  > .container {
+    display: flex;
+    align-items: center;
+  }
+
+  nav a {
+    margin-right: 20px;
+  }
+
+  .credits {
+    margin-left: auto;
+  }
+}
