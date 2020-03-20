@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { getRecipe } from '../_helpers';
 import FocusRecipe from './FocusRecipe';
-import './Main.scss';
 import RecipeGrid from './RecipeGrid';
+import './Main.scss';
 
 function Main(props) {
-  const [focusRecipe, setFocusRecipe] = useState(null);
+  const [focusID, setFocusID] = useState(null);
   const [newRecipe, setNewRecipe] = useState({
     title: 'My New Recipe',
     categories: [],
@@ -14,12 +15,12 @@ function Main(props) {
     difficulty: 0
   });
 
-  function openRecipe(recipe) {
-    setFocusRecipe(recipe);
+  function openRecipe(id) {
+    setFocusID(id);
   }
 
   function closeRecipe() {
-    setFocusRecipe(null);
+    setFocusID(null);
   }
 
   function handleDelete(id) {
@@ -27,9 +28,14 @@ function Main(props) {
     props.deleteRecipe(id);
   }
 
+  let focusRecipe = {};
+  if (focusID) {
+    focusRecipe = getRecipe(props.recipes, focusID);
+  }
+
   return (
     <main className="container">
-      {focusRecipe ? (
+      {focusID ? (
         <FocusRecipe
           {...focusRecipe}
           closeRecipe={closeRecipe}

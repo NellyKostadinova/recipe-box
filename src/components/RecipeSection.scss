@@ -1,9 +1,15 @@
 .recipe-section {
   margin: 40px 0px;
 
-  li > input {
+  li > input,
+  li > textarea {
     font-size: 18px;
     width: 100%;
+  }
+  li > textarea {
+    vertical-align: top;
+    height: 100px;
+    resize: vertical;
   }
 
   ol li {

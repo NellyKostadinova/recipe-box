@@ -15,7 +15,7 @@ function RecipeCard(props) {
         <h3>{props.title}</h3>
         <button
           onClick={() => {
-            props.clickHandler(props);
+            props.clickHandler(props.id);
           }}
         >
           Open recipe

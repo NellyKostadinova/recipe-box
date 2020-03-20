@@ -1,7 +1,14 @@
 @import '../_styles/abstracts';
 
+.tag-list {
+  margin: 0;
+  padding: 0;
+
+  > li {
+    display: inline-block;
+  }
+}
 .category-tag {
-  display: inline-block;
   padding: 0px 10px;
   margin-right: 5px;
   border-radius: 20px;

@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import EditableField from './EditableField';
 
 function RecipeImage(props) {
-  const [internalUrl, setInternalUrl] = useState(props.imgUrl);
-
-  useEffect(() => {
-    if (props.saving) {
-      props.handleSave(props.id, 'imgUrl', internalUrl);
-    }
-  }, [props.saving]);
-
-  function handleChange(value) {
-    setInternalUrl(value);
-  }
-
   return (
     <div className="recipe-image">
-      <img src={internalUrl} alt={props.title}></img>
-      {props.editing && (
-        <input
-          onBlur={e => handleChange(e.target.value)}
-          defaultValue={internalUrl}
+      <img src={props.imgUrl} alt={props.title}></img>
+      {(props.editing || props.saving) && (
+        <EditableField
+          id={props.id}
+          itemKey="imgUrl"
+          value={props.imgUrl}
+          saving={props.saving}
+          handleSave={props.handleSave}
         />
       )}
     </div>

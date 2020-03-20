@@ -1,28 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import EditableField from './EditableField';
 
 function RecipeTitle(props) {
-  const [internalTitle, setInternalTitle] = useState(props.title);
-
-  useEffect(() => {
-    if (props.saving) {
-      props.handleSave(props.id, 'title', internalTitle);
-    }
-  }, [props.saving]);
-
-  function handleChange(value) {
-    setInternalTitle(value);
-  }
-
   return (
     <>
-      {props.editing ? (
-        <input
+      {props.editing || props.saving ? (
+        <EditableField
+          id={props.id}
+          itemKey="title"
+          value={props.title}
+          saving={props.saving}
+          handleSave={props.handleSave}
           className="recipe-title"
-          onBlur={e => handleChange(e.target.value)}
-          defaultValue={internalTitle}
         />
       ) : (
-        <h1>{internalTitle}</h1>
+        <h1>{props.title}</h1>
       )}
     </>
   );

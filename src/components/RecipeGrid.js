@@ -9,7 +9,7 @@ function RecipeGrid(props) {
           <RecipeCard
             {...recipe}
             clickHandler={props.openRecipe}
-            key={recipe.title}
+            key={recipe.id}
           />
         );
       })}

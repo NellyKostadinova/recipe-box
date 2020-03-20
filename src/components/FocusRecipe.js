@@ -51,7 +51,7 @@ function FocusRecipe(props) {
       <article className="focus-recipe">
         <div className="recipe-info">
           <RecipeTitle title={props.title} {...editingProps} />
-          <TagList tags={props.categories} />
+          <TagList tags={props.categories} {...editingProps} />
           <DifficultyLevel level={props.difficulty} />
           <RecipeSection
             title="Ingredients:"
@@ -66,6 +66,7 @@ function FocusRecipe(props) {
             itemsKey="instructions"
             items={props.instructions}
             ordered={true}
+            inputTag="textarea"
             className="recipe-instructions"
             {...editingProps}
           />
