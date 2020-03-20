@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function RecipeImage(props) {
-  const [editing, setEditing] = useState(false);
   const [internalUrl, setInternalUrl] = useState(props.imgUrl);
 
-  function handleEdit() {
-    setEditing(true);
-  }
-
-  function handleSave() {
-    setEditing(false);
-    props.saveRecipe(props.id, 'imgUrl', internalUrl);
-  }
+  useEffect(() => {
+    if (props.saving) {
+      props.handleSave(props.id, 'imgUrl', internalUrl);
+    }
+  }, [props.saving]);
 
   function handleChange(value) {
     setInternalUrl(value);
@@ -20,10 +16,7 @@ function RecipeImage(props) {
   return (
     <div className="recipe-image">
       <img src={internalUrl} alt={props.title}></img>
-      <button className="edit sm" onClick={editing ? handleSave : handleEdit}>
-        {editing ? 'Save' : 'Edit'}
-      </button>
-      {editing && (
+      {props.editing && (
         <input
           onBlur={e => handleChange(e.target.value)}
           defaultValue={internalUrl}

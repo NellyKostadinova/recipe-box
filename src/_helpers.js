@@ -28,4 +28,19 @@ function updateRecipeArray(recipeArr, recipe, index) {
   return _recipeArr;
 }
 
-export { ID, getRecipe, getRecipeIndex, updateRecipeArray };
+function getLocalStorageRecipes() {
+  return JSON.parse(window.localStorage.getItem('rbRecipes'));
+}
+
+function setLocalStorageRecipes(recipes) {
+  window.localStorage.setItem('rbRecipes', JSON.stringify(recipes));
+}
+
+export {
+  ID,
+  getRecipe,
+  getRecipeIndex,
+  updateRecipeArray,
+  getLocalStorageRecipes,
+  setLocalStorageRecipes
+};

@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function RecipeTitle(props) {
-  const [editing, setEditing] = useState(false);
   const [internalTitle, setInternalTitle] = useState(props.title);
 
-  function handleEdit() {
-    setEditing(true);
-  }
-
-  function handleSave() {
-    setEditing(false);
-    props.saveRecipe(props.id, 'title', internalTitle);
-  }
+  useEffect(() => {
+    if (props.saving) {
+      props.handleSave(props.id, 'title', internalTitle);
+    }
+  }, [props.saving]);
 
   function handleChange(value) {
     setInternalTitle(value);
@@ -19,10 +15,7 @@ function RecipeTitle(props) {
 
   return (
     <>
-      <button className="edit sm" onClick={editing ? handleSave : handleEdit}>
-        {editing ? 'Save' : 'Edit'}
-      </button>
-      {editing ? (
+      {props.editing ? (
         <input
           className="recipe-title"
           onBlur={e => handleChange(e.target.value)}
