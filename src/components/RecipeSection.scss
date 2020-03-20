@@ -1,6 +1,10 @@
 .recipe-section {
   margin: 40px 0px;
 
+  li {
+    white-space: pre-wrap;
+  }
+
   li > input,
   li > textarea {
     font-size: 18px;

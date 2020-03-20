@@ -5,7 +5,8 @@ function EditableList(props) {
 
   useEffect(() => {
     if (props.saving) {
-      props.handleSave(props.id, props.itemsKey, internalItems);
+      let cleanItems = internalItems.filter(item => item !== '');
+      props.handleSave(props.id, props.itemsKey, cleanItems);
     }
   }, [props.saving]);
 
@@ -31,6 +32,7 @@ function EditableList(props) {
               onBlur={e => handleChange(index, e.target.value)}
               defaultValue={item}
               className={props.className}
+              {...props.additional}
             />
           </li>
         );

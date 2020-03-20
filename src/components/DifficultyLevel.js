@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Rating from 'react-rating';
 import './DifficultyLevel.scss';
 
 function DifficultyLevel(props) {
-  const dots = [];
+  const [internalValue, setInternalValue] = useState(props.level);
 
-  for (let i = 0; i < props.level; i++) {
-    dots.push(<div className="full" key={i}></div>);
-  }
+  useEffect(() => {
+    if (props.saving) {
+      props.handleSave(props.id, 'difficulty', internalValue);
+    }
+  }, [props.saving]);
 
-  for (let i = 5; i > props.level; i--) {
-    dots.push(<div key={i}></div>);
+  function handleChange(value) {
+    setInternalValue(value);
   }
 
   return (
     <figure className="difficulty">
       <figcaption>Difficulty:</figcaption>
-      <div className="scale">{dots}</div>
+      <Rating
+        initialRating={internalValue}
+        readonly={props.editing ? '' : 'readonly'}
+        fullSymbol={<div className="full"></div>}
+        emptySymbol={<div></div>}
+        className="scale"
+        onChange={handleChange}
+      />
     </figure>
   );
 }

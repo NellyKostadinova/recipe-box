@@ -33,26 +33,30 @@ function FocusRecipe(props) {
 
   return (
     <section>
-      <button onClick={props.closeRecipe}>{'<- '}Back</button>
-      <button
-        className={editing ? '' : 'edit'}
-        onClick={editing ? handleSave : handleEdit}
-      >
-        {editing ? 'Save' : 'Edit'}
-      </button>
-      <button
-        className="danger"
-        onClick={() => {
-          props.deleteRecipe(props.id);
-        }}
-      >
-        Delete
-      </button>
+      <nav className="recipe-nav">
+        <button className="back" onClick={props.closeRecipe}>
+          {'<- '}Back
+        </button>
+        <button
+          className={editing ? '' : 'edit'}
+          onClick={editing ? handleSave : handleEdit}
+        >
+          {editing ? 'Save' : 'Edit'}
+        </button>
+        <button
+          className="danger"
+          onClick={() => {
+            props.deleteRecipe(props.id);
+          }}
+        >
+          Delete
+        </button>
+      </nav>
       <article className="focus-recipe">
         <div className="recipe-info">
           <RecipeTitle title={props.title} {...editingProps} />
           <TagList tags={props.categories} {...editingProps} />
-          <DifficultyLevel level={props.difficulty} />
+          <DifficultyLevel level={props.difficulty} {...editingProps} />
           <RecipeSection
             title="Ingredients:"
             itemsKey="ingredients"

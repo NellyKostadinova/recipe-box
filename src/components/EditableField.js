@@ -20,6 +20,7 @@ function EditableField(props) {
       className={props.className}
       onBlur={e => handleChange(e.target.value)}
       defaultValue={internalValue}
+      {...props.additional}
     />
   );
 }

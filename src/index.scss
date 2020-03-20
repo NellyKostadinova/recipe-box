@@ -31,6 +31,13 @@ img {
   height: auto;
 }
 
+input,
+textarea {
+  &:focus,
+  &:active {
+    outline-color: $green;
+  }
+}
 .container {
   max-width: 80%;
   margin-left: auto;
@@ -86,8 +93,4 @@ button {
   + button {
     margin-left: 20px;
   }
-}
-
-*[contentEditable='true'] {
-  box-shadow: $shadow;
 }
