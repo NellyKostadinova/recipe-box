@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import FocusRecipe from '../components/FocusRecipe';
-import { useParams } from 'react-router-dom';
-import { cleanRecipe, getRecipe, getLocalStorageRecipes } from '../_helpers';
+import { Link, useParams } from 'react-router-dom';
+import useRecipeForm from '../hooks/useRecipeForm';
+import { getRecipe, getLocalStorageRecipes } from '../_helpers';
 import RecipeForm from '../components/RecipeForm';
+import FocusRecipe from '../components/FocusRecipe';
 
 function ViewRecipePage(props) {
-  const [recipe, setRecipe] = useState({
-    id: null,
-    title: '',
-    categories: [''],
-    imgUrl: '',
-    ingredients: [''],
-    instructions: [''],
-    difficulty: 1
-  });
+  const { recipe, setRecipe, handlers } = useRecipeForm(handleSave);
   const [editing, setEditing] = useState(false);
   const { id } = useParams();
 
@@ -30,31 +22,9 @@ function ViewRecipePage(props) {
     setEditing(false);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    setRecipe(cleanRecipe(recipe));
-    setEditing(false);
+  function handleSave() {
     props.saveRecipe(recipe);
-  }
-
-  function handleChange(event) {
-    setRecipe({ ...recipe, [event.target.name]: event.target.value });
-  }
-
-  function handleListChange(index, event) {
-    let _list = recipe[event.target.name];
-    _list[index] = event.target.value;
-    setRecipe({ ...recipe, [event.target.name]: _list });
-  }
-
-  function handleDifficultyChange(val) {
-    setRecipe({ ...recipe, difficulty: val });
-  }
-
-  function handleAddItem(event) {
-    event.preventDefault();
-    let _list = [...recipe[event.target.name], ''];
-    setRecipe({ ...recipe, [event.target.name]: _list });
+    setEditing(false);
   }
 
   return (
@@ -76,14 +46,7 @@ function ViewRecipePage(props) {
         </button>
       </nav>
       {editing ? (
-        <RecipeForm
-          {...recipe}
-          onSubmit={handleSubmit}
-          onChange={handleChange}
-          onListChange={handleListChange}
-          onDifficultyChange={handleDifficultyChange}
-          onAddItem={handleAddItem}
-        />
+        <RecipeForm {...recipe} {...handlers} />
       ) : (
         <FocusRecipe {...recipe} />
       )}

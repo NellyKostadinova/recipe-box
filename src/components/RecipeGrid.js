@@ -6,13 +6,7 @@ function RecipeGrid(props) {
   return (
     <section className="recipes-grid">
       {props.recipes.map(recipe => {
-        return (
-          <RecipeCard
-            {...recipe}
-            clickHandler={props.openRecipe}
-            key={recipe.id}
-          />
-        );
+        return <RecipeCard {...recipe} key={recipe.id} />;
       })}
     </section>
   );

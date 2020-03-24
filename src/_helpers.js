@@ -1,5 +1,5 @@
 const mockImage =
-  'https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';
+  'https://images.unsplash.com/photo-1517856497829-3047e3fffae1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
 
 function ID() {
   return (
@@ -30,23 +30,6 @@ function getRecipe(recipeArr, id) {
   return recipeArr.filter(recipe => recipe.id === id)[0];
 }
 
-// function getRecipeIndex(recipeArr, id) {
-//   return recipeArr.findIndex(recipe => recipe.id === id);
-// }
-
-// function updateRecipeArray(recipeArr, recipe, index) {
-//   let _recipeArr = [...recipeArr];
-//   if (index >= 0) {
-//     _recipeArr[index] = recipe;
-//   } else {
-//     //TODO
-//     //if it's a new recipe
-//     _recipeArr.push(recipe);
-//   }
-
-//   return _recipeArr;
-// }
-
 function getLocalStorageRecipes() {
   return JSON.parse(window.localStorage.getItem('rbRecipes'));
 }
@@ -61,8 +44,6 @@ export {
   cleanList,
   cleanRecipe,
   getRecipe,
-  //getRecipeIndex,
-  //updateRecipeArray,
   getLocalStorageRecipes,
   setLocalStorageRecipes
 };
