@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeCard from './RecipeCard';
+import './RecipeGrid.scss';
 
 function RecipeGrid(props) {
   return (

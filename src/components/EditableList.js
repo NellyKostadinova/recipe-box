@@ -1,46 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function EditableList(props) {
-  const [internalItems, setInternalItems] = useState(props.items);
-
-  useEffect(() => {
-    if (props.saving) {
-      let cleanItems = internalItems.filter(item => item !== '');
-      props.handleSave(props.id, props.itemsKey, cleanItems);
-    }
-  }, [props.saving]);
-
-  function handleChange(index, value) {
-    let updatedItems = [...internalItems];
-    updatedItems[index] = value;
-    setInternalItems(updatedItems);
-  }
-
-  function addListItem() {
-    setInternalItems([...internalItems, '']);
-  }
-
   const InputTag = props.inputTag || 'input';
+  const ListTag = props.ordered ? 'ol' : 'ul';
 
   return (
-    <>
-      {internalItems.map((item, index) => {
+    <ListTag className={props.className}>
+      {props.items.map((item, index) => {
         return (
           <li key={index}>
             <InputTag
-              index={index}
-              onBlur={e => handleChange(index, e.target.value)}
-              defaultValue={item}
-              className={props.className}
-              {...props.additional}
+              name={props.name}
+              value={item}
+              placeholder={props.placeholder}
+              onChange={event => {
+                props.onChange(index, event);
+              }}
+              required={index === 0 ? true : false}
+              className={props.inputClassName}
             />
           </li>
         );
       })}
-      <button className="add sm" onClick={addListItem}>
+      <button className="add sm" name={props.name} onClick={props.onAddItem}>
         +
       </button>
-    </>
+    </ListTag>
   );
 }
 

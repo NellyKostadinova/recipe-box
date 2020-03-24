@@ -1,19 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Logo from './Logo';
 import './Header.scss';
 
 function Header(props) {
   return (
     <header>
       <div className="container">
-        <div className="brand">
-          <img className="logo" src="./rb-logo.svg" alt="logo"></img>
+        <Link to="/" className="brand">
+          <Logo />
           <h2>Recipe Box</h2>
-        </div>
+        </Link>
         <nav>
-          <button className="add-recipe" onClick={props.showRecipeForm}>
+          <Link to="/add" className="button icon-button add-recipe">
             Add new recipe
-          </button>
-          <button className="list">Shopping List</button>
+          </Link>
+          <Link to="/shopping-list" className="button icon-button list">
+            Shopping List
+          </Link>
         </nav>
       </div>
     </header>

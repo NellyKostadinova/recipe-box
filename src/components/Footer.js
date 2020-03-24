@@ -7,7 +7,9 @@ function Footer() {
       <div className="container">
         <nav>
           <a href="https://github.com/NellyKostadinova">GitHub</a>
-          <a href="https://github.com/NellyKostadinova">Linkedin</a>
+          <a href="https://www.linkedin.com/in/nelly-kostadinova-aab60196/">
+            Linkedin
+          </a>
         </nav>
         <div className="credits">
           Icons made by{' '}
