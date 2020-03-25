@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/recipe-box/static/css/main.ed4f76d2.chunk.css",
+    "main.js": "/recipe-box/static/js/main.64b4f280.chunk.js",
+    "main.js.map": "/recipe-box/static/js/main.64b4f280.chunk.js.map",
+    "runtime-main.js": "/recipe-box/static/js/runtime-main.7648288e.js",
+    "runtime-main.js.map": "/recipe-box/static/js/runtime-main.7648288e.js.map",
+    "static/js/2.faa2945b.chunk.js": "/recipe-box/static/js/2.faa2945b.chunk.js",
+    "static/js/2.faa2945b.chunk.js.map": "/recipe-box/static/js/2.faa2945b.chunk.js.map",
+    "index.html": "/recipe-box/index.html",
+    "precache-manifest.c811ffb7e419876c86e6b701f20701ee.js": "/recipe-box/precache-manifest.c811ffb7e419876c86e6b701f20701ee.js",
+    "service-worker.js": "/recipe-box/service-worker.js",
+    "static/css/main.ed4f76d2.chunk.css.map": "/recipe-box/static/css/main.ed4f76d2.chunk.css.map",
+    "static/js/2.faa2945b.chunk.js.LICENSE.txt": "/recipe-box/static/js/2.faa2945b.chunk.js.LICENSE.txt",
+    "static/media/FocusRecipe.scss": "/recipe-box/static/media/back.9c5b9b75.svg",
+    "static/media/Header.scss": "/recipe-box/static/media/plus.52bd3043.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7648288e.js",
+    "static/js/2.faa2945b.chunk.js",
+    "static/css/main.ed4f76d2.chunk.css",
+    "static/js/main.64b4f280.chunk.js"
+  ]
+}
