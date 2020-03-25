@@ -1,18 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
+import * as recipeActions from '../actions/recipeActions';
+import recipeStore from '../stores/recipeStores';
 import useRecipeForm from '../hooks/useRecipeForm';
-import { getRecipe, getLocalStorageRecipes } from '../_helpers';
 import RecipeForm from '../components/RecipeForm/RecipeForm';
 import FocusRecipe from '../components/FocusRecipe/FocusRecipe';
 
-function ViewRecipePage(props) {
+function ViewRecipePage() {
   const { recipe, setRecipe, handlers } = useRecipeForm(handleSave);
   const [editing, setEditing] = useState(false);
   const { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
-    setRecipe(getRecipe(getLocalStorageRecipes(), id));
-  }, [id, setRecipe]);
+    recipeStore.addChangeListener(onChange);
+    let storeRecipes = recipeStore.getRecipes();
+    if (storeRecipes.length <= 0) {
+      recipeActions.loadRecipes();
+    } else {
+      setRecipe(recipeStore.getRecipeById(id));
+    }
+    return () => {
+      recipeStore.removeChangeListener(onChange);
+    };
+  }, []);
+
+  function onChange() {
+    setRecipe(recipeStore.getRecipeById(id));
+  }
 
   function handleEdit() {
     setEditing(true);
@@ -23,7 +38,7 @@ function ViewRecipePage(props) {
   }
 
   function handleSave() {
-    props.saveRecipe(recipe);
+    recipeActions.saveRecipe(recipe);
     setEditing(false);
   }
 
@@ -39,7 +54,8 @@ function ViewRecipePage(props) {
         <button
           className="danger"
           onClick={() => {
-            props.deleteRecipe(recipe.id);
+            history.push('/');
+            recipeActions.deleteRecipe(recipe);
           }}
         >
           Delete

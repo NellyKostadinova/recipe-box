@@ -26,10 +26,6 @@ function cleanRecipe(recipe) {
   };
 }
 
-function getRecipe(recipeArr, id) {
-  return recipeArr.find(recipe => recipe.id === id);
-}
-
 function getLocalStorageRecipes() {
   return JSON.parse(window.localStorage.getItem('rbRecipes'));
 }
@@ -41,9 +37,7 @@ function setLocalStorageRecipes(recipes) {
 export {
   mockImage,
   ID,
-  cleanList,
   cleanRecipe,
-  getRecipe,
   getLocalStorageRecipes,
   setLocalStorageRecipes
 };
