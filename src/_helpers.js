@@ -27,7 +27,7 @@ function cleanRecipe(recipe) {
 }
 
 function getRecipe(recipeArr, id) {
-  return recipeArr.filter(recipe => recipe.id === id)[0];
+  return recipeArr.find(recipe => recipe.id === id);
 }
 
 function getLocalStorageRecipes() {

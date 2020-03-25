@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './common/Header/Header';
+import Footer from './common/Footer/Footer';
 import {
   ID,
   cleanRecipe,
@@ -10,7 +10,7 @@ import {
 import sampleRecipes from './assets/recipes';
 import './App.scss';
 import { Switch, Route, useHistory } from 'react-router-dom';
-import RecipeGrid from './components/RecipeGrid';
+import RecipeGrid from './components/RecipeGrid/RecipeGrid';
 import AddRecipePage from './pages/AddRecipePage';
 import ViewRecipePage from './pages/ViewRecipePage';
 

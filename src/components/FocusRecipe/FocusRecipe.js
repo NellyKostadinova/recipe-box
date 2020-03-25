@@ -1,8 +1,8 @@
 import React from 'react';
-import { mockImage } from '../_helpers';
-import TagList from './TagList';
-import DifficultyLevel from './DifficultyLevel';
-import RecipeSection from './RecipeSection';
+import { mockImage } from '../../_helpers';
+import TagList from '../TagList/TagList';
+import DifficultyLevel from '../DifficultyLevel/DifficultyLevel';
+import RecipeSection from '../RecipeSection/RecipeSection';
 import './FocusRecipe.scss';
 
 function FocusRecipe(props) {

@@ -1,4 +1,4 @@
-@import '../_styles/abstracts';
+@import '../../_styles/abstracts';
 
 header {
   background-color: $green;
@@ -34,10 +34,10 @@ header {
     }
 
     &.add-recipe {
-      background-image: url(../images/plus.svg);
+      background-image: url(../../assets/images/plus.svg);
     }
     &.list {
-      background-image: url(../images/cart.svg);
+      background-image: url(../../assets/images/cart.svg);
     }
   }
 }

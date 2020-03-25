@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useRecipeForm from '../hooks/useRecipeForm';
 import { getRecipe, getLocalStorageRecipes } from '../_helpers';
-import RecipeForm from '../components/RecipeForm';
-import FocusRecipe from '../components/FocusRecipe';
+import RecipeForm from '../components/RecipeForm/RecipeForm';
+import FocusRecipe from '../components/FocusRecipe/FocusRecipe';
 
 function ViewRecipePage(props) {
   const { recipe, setRecipe, handlers } = useRecipeForm(handleSave);
@@ -12,7 +12,7 @@ function ViewRecipePage(props) {
 
   useEffect(() => {
     setRecipe(getRecipe(getLocalStorageRecipes(), id));
-  }, [id]);
+  }, [id, setRecipe]);
 
   function handleEdit() {
     setEditing(true);

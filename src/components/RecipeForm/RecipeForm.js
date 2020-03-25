@@ -1,6 +1,6 @@
 import React from 'react';
-import { mockImage } from '../_helpers';
-import EditableList from './EditableList';
+import { mockImage } from '../../_helpers';
+import EditableList from '../EditableList/EditableList';
 import Rating from 'react-rating';
 
 function RecipeForm(props) {

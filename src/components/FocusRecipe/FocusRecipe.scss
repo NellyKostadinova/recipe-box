@@ -1,11 +1,11 @@
-@import '../_styles/abstracts';
+@import '../../_styles/abstracts';
 
 .recipe-nav {
   display: flex;
 
   .back {
     margin-right: auto;
-    background-image: url(../images/back.svg);
+    background-image: url(../../assets/images/back.svg);
   }
 }
 

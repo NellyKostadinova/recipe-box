@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { mockImage } from '../_helpers';
-import TagList from './TagList';
+import { mockImage } from '../../_helpers';
+import TagList from '../TagList/TagList';
 import './RecipeCard.scss';
 
 function RecipeCard(props) {
