@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "da8e407e6c78cfb53bcb1042ec13b487",
+    "revision": "93a6b9f31cd22738ab47c086697f8750",
     "url": "/recipe-box/index.html"
   },
   {
-    "revision": "9dfce5901305516f199b",
+    "revision": "2c9738a506534a8791e9",
     "url": "/recipe-box/static/css/main.ed4f76d2.chunk.css"
   },
   {
-    "revision": "612c06fac98449141159",
-    "url": "/recipe-box/static/js/2.faa2945b.chunk.js"
+    "revision": "5bd7340592507bba8b85",
+    "url": "/recipe-box/static/js/2.4594b023.chunk.js"
   },
   {
     "revision": "f231859d6585c4cd5f80c344783ed269",
-    "url": "/recipe-box/static/js/2.faa2945b.chunk.js.LICENSE.txt"
+    "url": "/recipe-box/static/js/2.4594b023.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9dfce5901305516f199b",
-    "url": "/recipe-box/static/js/main.64b4f280.chunk.js"
+    "revision": "2c9738a506534a8791e9",
+    "url": "/recipe-box/static/js/main.81ce6efb.chunk.js"
   },
   {
     "revision": "34b673932c5f5785b601",
