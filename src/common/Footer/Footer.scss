@@ -2,7 +2,7 @@
 
 footer {
   background-color: $main-dark;
-  padding: 20px 0px;
+  padding: $space-sm 0px;
 
   * {
     color: $main-light;
@@ -14,7 +14,7 @@ footer {
   }
 
   nav a {
-    margin-right: 20px;
+    margin-right: $space-sm;
   }
 
   .credits {

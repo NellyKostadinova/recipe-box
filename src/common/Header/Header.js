@@ -12,10 +12,13 @@ function Header() {
           <h2>Recipe Box</h2>
         </Link>
         <nav>
-          <Link to="/add" className="button icon-button add-recipe">
+          <Link to="/add" className="button outline icon-button add-recipe">
             Add new recipe
           </Link>
-          <Link to="/shopping-list" className="button icon-button shopping">
+          <Link
+            to="/shopping-list"
+            className="button outline icon-button shopping"
+          >
             Shopping List
           </Link>
         </nav>

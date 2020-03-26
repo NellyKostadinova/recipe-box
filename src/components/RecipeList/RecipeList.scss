@@ -1,4 +1,6 @@
+@import '../../_styles/abstracts';
+
 .recipes-list {
   display: grid;
-  grid-gap: 40px;
+  grid-gap: $space-md;
 }

@@ -2,7 +2,7 @@
 
 header {
   background-color: $green;
-  padding: 20px 0px;
+  padding: $space-sm 0px;
 
   > .container {
     display: flex;
@@ -10,7 +10,7 @@ header {
   }
 
   .logo {
-    margin-right: 10px;
+    margin-right: $space-xs;
     max-width: 60px;
     height: auto;
   }
@@ -21,23 +21,14 @@ header {
     margin-right: auto;
 
     h2 {
-      margin: 20px 0px 10px;
+      margin: $space-sm 0px $space-xs;
     }
   }
 
   nav .button {
-    border: 2px solid $main-dark;
-
     &:hover {
-      background-size: 20px 20px;
+      background-size: $space-sm $space-sm;
       background-position: 17px center;
-    }
-
-    &.add-recipe {
-      background-image: url(../../assets/images/plus.svg);
-    }
-    &.shopping {
-      background-image: url(../../assets/images/cart.svg);
     }
   }
 }

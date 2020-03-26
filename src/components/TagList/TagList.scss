@@ -8,10 +8,11 @@
     display: inline-block;
   }
 }
+
 .category-tag {
-  padding: 0px 10px;
+  padding: 0px $space-xs;
   margin-right: 5px;
-  border-radius: 20px;
+  border-radius: 2em;
   font-size: 14px;
   border: 2px solid $green;
 }

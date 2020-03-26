@@ -1,35 +1,25 @@
 @import '../../_styles/abstracts';
 
-.recipe-nav {
-  display: flex;
-
-  .back {
-    margin-right: auto;
-    background-image: url(../../assets/images/back.svg);
-  }
-}
-
 .focus-recipe {
   display: flex;
   align-items: flex-start;
 
-  h1,
-  input.recipe-title {
+  .recipe-title {
     font-weight: 600;
     font-size: 2em;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding: 10px 0px;
+    padding: $space-xs 0px;
     width: 100%;
   }
 
   .tag-list {
-    margin-bottom: 20px;
+    margin-bottom: $space-sm;
   }
 
   .recipe-info {
     width: 60%;
-    padding-right: 80px;
+    padding-right: $space-lg;
   }
 
   .recipe-image {
@@ -37,16 +27,15 @@
 
     img {
       display: block;
-      border-radius: 20px;
+      border-radius: $round-corner;
       box-shadow: $shadow;
       width: 100%;
       height: auto;
-      min-height: 60px;
     }
 
     input {
       width: 100%;
-      margin-top: 20px;
+      margin-top: $space-sm;
     }
   }
 }

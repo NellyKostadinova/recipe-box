@@ -1,0 +1,82 @@
+button,
+.button {
+  @include full-button($green);
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0.5em 1.75em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 2em;
+  transition: border 300ms;
+
+  &.danger {
+    @include full-button($orange);
+  }
+
+  &.edit {
+    @include full-button($main-light);
+  }
+
+  &.outline {
+    background-color: $transparent;
+    border: 2px solid $main-dark;
+  }
+
+  &.icon-button {
+    background-size: 18px 18px;
+    background-position: 18px center;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+
+    &.back {
+      background-image: url(../assets/images/back.svg);
+    }
+
+    &.add-recipe {
+      background-image: url(../assets/images/plus.svg);
+    }
+
+    &.shopping {
+      background-image: url(../assets/images/cart.svg);
+    }
+  }
+
+  &.add {
+    padding: 0em 0.5em;
+    margin-top: $space-xs;
+  }
+
+  &.sm {
+    font-size: 14px;
+  }
+
+  &.grid,
+  &.list {
+    > span.wrapper {
+      display: grid;
+      grid-gap: 4px;
+
+      > span {
+        background-color: $main-dark;
+      }
+    }
+  }
+
+  &.grid > span.wrapper {
+    grid-template-columns: repeat(2, 8px);
+    grid-template-rows: repeat(2, 8px);
+  }
+
+  &.list > span.wrapper {
+    grid-template-columns: repeat(1, 23px);
+    grid-template-rows: repeat(3, 4px);
+  }
+
+  + button,
+  + .button {
+    margin-left: $space-sm;
+  }
+}

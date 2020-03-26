@@ -1,7 +1,7 @@
 @import '../../_styles/abstracts';
 
 .recipe-card {
-  border-radius: 20px;
+  border-radius: $round-corner;
   box-shadow: $shadow;
 
   .recipe-img {
@@ -9,10 +9,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: $round-corner $round-corner 0px 0px;
   }
 
   .recipe-info {
-    padding: 20px;
+    padding: $space-sm;
   }
 }

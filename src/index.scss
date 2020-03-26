@@ -1,4 +1,5 @@
 @import './_styles/abstracts';
+@import './_styles/buttons';
 
 html,
 body {
@@ -38,96 +39,34 @@ textarea {
     outline-color: $green;
   }
 }
+
+form {
+  button,
+  input[type='submit'] {
+    &:focus,
+    &:active {
+      border: 2px solid $main-dark;
+    }
+  }
+}
+
 .container {
   max-width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
 
-button,
-.button {
-  cursor: pointer;
-  outline: none;
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: $green;
-  color: $main-dark;
-  border: 2px solid $green;
-  padding: 0.5em 1.75em;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 2em;
-  transition: border 300ms;
+main {
+  padding-top: $space-lg;
+  padding-bottom: $space-lg;
 
-  &:hover {
-    border: 2px solid $main-dark;
-  }
+  nav {
+    margin-bottom: $space-md;
+    display: flex;
+    justify-content: flex-end;
 
-  &.icon-button {
-    background-size: 18px 18px;
-    background-position: 18px center;
-    background-repeat: no-repeat;
-    padding-left: 50px;
-  }
-
-  &.danger {
-    background-color: $orange;
-    border: 2px solid $orange;
-
-    &:hover {
-      border: 2px solid $main-dark;
+    .back {
+      margin-right: auto;
     }
   }
-
-  &.edit {
-    background-color: $main-light;
-    border: 2px solid $main-light;
-
-    &:hover {
-      border: 2px solid $main-dark;
-    }
-  }
-
-  &.add {
-    padding: 0em 0.5em;
-    margin-top: 10px;
-  }
-
-  &.sm {
-    font-size: 14px;
-  }
-
-  &.grid > span.wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 8px);
-    grid-template-rows: repeat(2, 8px);
-    grid-gap: 4px;
-
-    > span {
-      background-color: $main-dark;
-    }
-  }
-
-  &.list > span.wrapper {
-    display: grid;
-    grid-template-columns: repeat(1, 23px);
-    grid-template-rows: repeat(3, 4px);
-    grid-gap: 4px;
-
-    > span {
-      background-color: $main-dark;
-    }
-  }
-
-  + button,
-  + .button {
-    margin-left: 20px;
-  }
-}
-
-main nav {
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: flex-end;
 }

@@ -10,7 +10,7 @@ function FocusRecipe(props) {
     <section>
       <article className="focus-recipe">
         <div className="recipe-info">
-          <h1>{props.title}</h1>
+          <h1 className="recipe-title">{props.title}</h1>
           <TagList tags={props.categories} />
           <DifficultyLevel level={props.difficulty} />
           <RecipeSection

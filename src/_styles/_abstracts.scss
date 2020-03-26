@@ -1,5 +1,28 @@
+//--COLORS--//
 $green: #b8be1c;
 $orange: #f76835;
 $main-light: #d7d1ca;
 $main-dark: #1f1f1f;
+$transparent: rgba(0, 0, 0, 0);
+
+//--SPACING--//
+$space-xs: 10px;
+$space-sm: 20px;
+$space-md: 40px;
+$space-lg: 80px;
+
+//--OTHER--//
 $shadow: 3px 3px 30px -6px rgba(0, 0, 0, 0.3);
+$round-corner: 20px;
+
+//--MIXINS--//
+
+@mixin full-button($color) {
+  color: $main-dark;
+  background-color: $color;
+  border: 2px solid $color;
+
+  &:hover {
+    border: 2px solid $main-dark;
+  }
+}

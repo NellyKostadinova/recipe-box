@@ -3,6 +3,8 @@ import * as recipeActions from '../actions/recipeActions';
 import recipeStore from '../stores/recipeStore';
 import RecipeGrid from '../components/RecipeGrid/RecipeGrid';
 import RecipeList from '../components/RecipeList/RecipeList';
+import GridButton from '../common/Buttons/GridButton';
+import ListButton from '../common/Buttons/ListButton';
 
 function AllRecipesPage() {
   const [localRecipes, setLocalRecipes] = useState(recipeStore.getRecipes());
@@ -26,21 +28,8 @@ function AllRecipesPage() {
   return (
     <>
       <nav className="view-nav">
-        <button onClick={() => setIsGrid(true)} className="grid">
-          <span className="wrapper">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-        <button onClick={() => setIsGrid(false)} className="list">
-          <span className="wrapper">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
+        <GridButton onClick={() => setIsGrid(true)} />
+        <ListButton onClick={() => setIsGrid(false)} />
       </nav>
       {isGrid ? (
         <RecipeGrid recipes={localRecipes} />

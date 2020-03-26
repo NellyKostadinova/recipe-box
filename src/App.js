@@ -5,7 +5,7 @@ import Footer from './common/Footer/Footer';
 import AddRecipePage from './pages/AddRecipePage';
 import ViewRecipePage from './pages/ViewRecipePage';
 import AllRecipesPage from './pages/AllRecipesPage';
-import './App.scss';
+import ShoppingListPage from './pages/ShoppingListPage';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
             <AddRecipePage />
           </Route>
           <Route path="/shopping-list">
-            <h1>Shopping List</h1>
+            <ShoppingListPage />
           </Route>
         </Switch>
       </main>
