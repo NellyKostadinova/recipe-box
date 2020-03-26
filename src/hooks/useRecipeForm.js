@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { cleanRecipe } from '../_helpers';
 
 function useRecipeForm(callback) {
   const [recipe, setRecipe] = useState({
@@ -34,7 +33,6 @@ function useRecipeForm(callback) {
 
   function onSubmit(event) {
     event.preventDefault();
-    setRecipe(cleanRecipe(recipe));
     callback();
   }
 

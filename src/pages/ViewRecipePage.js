@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import * as recipeActions from '../actions/recipeActions';
-import recipeStore from '../stores/recipeStores';
+import recipeStore from '../stores/recipeStore';
 import useRecipeForm from '../hooks/useRecipeForm';
 import RecipeForm from '../components/RecipeForm/RecipeForm';
 import FocusRecipe from '../components/FocusRecipe/FocusRecipe';
 
 function ViewRecipePage() {
   const { recipe, setRecipe, handlers } = useRecipeForm(handleSave);
+  const [initialRecipe, setInitialRecipe] = useState({});
   const [editing, setEditing] = useState(false);
   const { id } = useParams();
   const history = useHistory();
+
+  const onChange = useCallback(() => {
+    setInitialRecipe(recipeStore.getRecipeById(id));
+  }, [id]);
 
   useEffect(() => {
     recipeStore.addChangeListener(onChange);
@@ -18,16 +23,16 @@ function ViewRecipePage() {
     if (storeRecipes.length <= 0) {
       recipeActions.loadRecipes();
     } else {
-      setRecipe(recipeStore.getRecipeById(id));
+      setInitialRecipe(recipeStore.getRecipeById(id));
     }
     return () => {
       recipeStore.removeChangeListener(onChange);
     };
-  }, []);
+  }, [id, onChange]);
 
-  function onChange() {
-    setRecipe(recipeStore.getRecipeById(id));
-  }
+  useEffect(() => {
+    setRecipe(initialRecipe);
+  }, [initialRecipe, setRecipe, editing]);
 
   function handleEdit() {
     setEditing(true);
@@ -42,6 +47,11 @@ function ViewRecipePage() {
     setEditing(false);
   }
 
+  function handleDelete() {
+    history.push('/');
+    recipeActions.deleteRecipe(recipe);
+  }
+
   return (
     <section>
       <nav className="recipe-nav">
@@ -51,20 +61,14 @@ function ViewRecipePage() {
         <button className="edit" onClick={editing ? handleCancel : handleEdit}>
           {editing ? 'Cancel' : 'Edit'}
         </button>
-        <button
-          className="danger"
-          onClick={() => {
-            history.push('/');
-            recipeActions.deleteRecipe(recipe);
-          }}
-        >
+        <button className="danger" onClick={handleDelete}>
           Delete
         </button>
       </nav>
       {editing ? (
         <RecipeForm {...recipe} {...handlers} />
       ) : (
-        <FocusRecipe {...recipe} />
+        <FocusRecipe {...initialRecipe} />
       )}
     </section>
   );

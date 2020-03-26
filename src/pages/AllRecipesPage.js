@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as recipeActions from '../actions/recipeActions';
-import recipeStore from '../stores/recipeStores';
+import recipeStore from '../stores/recipeStore';
 import RecipeGrid from '../components/RecipeGrid/RecipeGrid';
 
 function AllRecipesPage() {
@@ -15,7 +15,7 @@ function AllRecipesPage() {
     return () => {
       recipeStore.removeChangeListener(onChange);
     };
-  });
+  }, []);
 
   function onChange() {
     setLocalRecipes(recipeStore.getRecipes());

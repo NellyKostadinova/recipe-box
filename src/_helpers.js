@@ -1,6 +1,16 @@
 const mockImage =
   'https://images.unsplash.com/photo-1517856497829-3047e3fffae1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
 
+const recipeTemplate = {
+  id: null,
+  title: '',
+  categories: [''],
+  imgUrl: mockImage,
+  ingredients: [''],
+  instructions: [''],
+  difficulty: 1
+};
+
 function ID() {
   return (
     '_' +
@@ -36,6 +46,7 @@ function setLocalStorageRecipes(recipes) {
 
 export {
   mockImage,
+  recipeTemplate,
   ID,
   cleanRecipe,
   getLocalStorageRecipes,

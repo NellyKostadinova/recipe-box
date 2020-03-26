@@ -1,14 +1,11 @@
 import React from 'react';
-import { mockImage } from '../../_helpers';
+import { mockImage, recipeTemplate } from '../../_helpers';
 import TagList from '../TagList/TagList';
 import DifficultyLevel from '../DifficultyLevel/DifficultyLevel';
 import RecipeSection from '../RecipeSection/RecipeSection';
 import './FocusRecipe.scss';
 
 function FocusRecipe(props) {
-  function handleImageError(event) {
-    event.target.src = mockImage;
-  }
   return (
     <section>
       <article className="focus-recipe">
@@ -30,15 +27,13 @@ function FocusRecipe(props) {
           />
         </div>
         <div className="recipe-image">
-          <img
-            src={props.imgUrl}
-            alt={props.title}
-            onError={handleImageError}
-          ></img>
+          <img src={props.imgUrl || mockImage} alt={props.title}></img>
         </div>
       </article>
     </section>
   );
 }
+
+FocusRecipe.defaultProps = recipeTemplate;
 
 export default FocusRecipe;
