@@ -15,7 +15,7 @@ function Header() {
           <Link to="/add" className="button icon-button add-recipe">
             Add new recipe
           </Link>
-          <Link to="/shopping-list" className="button icon-button list">
+          <Link to="/shopping-list" className="button icon-button shopping">
             Shopping List
           </Link>
         </nav>

@@ -8,10 +8,10 @@ function RecipeCard(props) {
   return (
     <div className="recipe-card">
       <div
-        className="card-img"
+        className="recipe-img"
         style={{ backgroundImage: `url(${props.imgUrl || mockImage})` }}
       ></div>
-      <div className="card-info">
+      <div className="recipe-info">
         <TagList tags={props.categories} />
         <h3>{props.title}</h3>
         <Link to={`/recipe/${props.id}`}>

@@ -98,8 +98,36 @@ button,
     font-size: 14px;
   }
 
+  &.grid > span.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 8px);
+    grid-template-rows: repeat(2, 8px);
+    grid-gap: 4px;
+
+    > span {
+      background-color: $main-dark;
+    }
+  }
+
+  &.list > span.wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 23px);
+    grid-template-rows: repeat(3, 4px);
+    grid-gap: 4px;
+
+    > span {
+      background-color: $main-dark;
+    }
+  }
+
   + button,
   + .button {
     margin-left: 20px;
   }
+}
+
+main nav {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: flex-end;
 }

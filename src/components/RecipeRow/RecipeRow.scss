@@ -1,0 +1,22 @@
+@import '../../_styles/abstracts';
+
+.recipe-row {
+  display: grid;
+  grid-template-columns: 200px auto 200px;
+  grid-gap: 30px;
+  border-radius: 20px;
+  box-shadow: $shadow;
+
+  .recipe-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px 0px 0px 20px;
+  }
+
+  .button {
+    align-self: center;
+    justify-self: flex-end;
+    margin-right: 20px;
+  }
+}
