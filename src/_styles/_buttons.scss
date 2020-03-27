@@ -16,7 +16,7 @@ button,
     @include full-button($orange);
   }
 
-  &.edit {
+  &.secondary {
     @include full-button($main-light);
   }
 

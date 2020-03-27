@@ -1,0 +1,26 @@
+@import '../../_styles/abstracts';
+
+.popup-backdrop {
+  background-color: rgba($main-light, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .popup {
+    background-color: $white;
+    border-radius: $round-corner;
+    box-shadow: $shadow;
+    padding: $space-md;
+    width: 90%;
+    max-width: 600px;
+  }
+
+  .popup-inner {
+    text-align: center;
+  }
+}

@@ -5,11 +5,15 @@ import recipeStore from '../stores/recipeStore';
 import useRecipeForm from '../hooks/useRecipeForm';
 import RecipeForm from '../components/RecipeForm/RecipeForm';
 import FocusRecipe from '../components/FocusRecipe/FocusRecipe';
+import Popup from '../components/Popup/Popup';
+import DangerButton from '../common/Buttons/DangerButton';
+import SecondaryButton from '../common/Buttons/SecondaryButton';
 
 function ViewRecipePage() {
   const { recipe, setRecipe, handlers } = useRecipeForm(handleSave);
   const [initialRecipe, setInitialRecipe] = useState({});
   const [editing, setEditing] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const { id } = useParams();
   const history = useHistory();
 
@@ -34,14 +38,6 @@ function ViewRecipePage() {
     setRecipe(initialRecipe);
   }, [initialRecipe, setRecipe, editing]);
 
-  function handleEdit() {
-    setEditing(true);
-  }
-
-  function handleCancel() {
-    setEditing(false);
-  }
-
   function handleSave() {
     recipeActions.saveRecipe(recipe);
     setEditing(false);
@@ -58,17 +54,26 @@ function ViewRecipePage() {
         <Link to="/" className="button icon-button back">
           Back
         </Link>
-        <button className="edit" onClick={editing ? handleCancel : handleEdit}>
+        <SecondaryButton
+          onClick={() => {
+            setEditing(!editing);
+          }}
+        >
           {editing ? 'Cancel' : 'Edit'}
-        </button>
-        <button className="danger" onClick={handleDelete}>
-          Delete
-        </button>
+        </SecondaryButton>
+        <DangerButton onClick={() => setShowPopup(true)}>Delete</DangerButton>
       </nav>
       {editing ? (
         <RecipeForm {...recipe} {...handlers} />
       ) : (
         <FocusRecipe {...initialRecipe} />
+      )}
+      {showPopup && (
+        <Popup>
+          <h1>Delete recipe?</h1>
+          <DangerButton onClick={handleDelete}>Delete</DangerButton>
+          <button onClick={() => setShowPopup(false)}>Cancel</button>
+        </Popup>
       )}
     </section>
   );
