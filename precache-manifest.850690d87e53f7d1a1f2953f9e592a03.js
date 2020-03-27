@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "066195a84edb3dd7dcabbaee252c6694",
+    "revision": "f41f7e6fddd86b0f1aecb1dca0e9355f",
     "url": "/recipe-box/index.html"
   },
   {
-    "revision": "11a786295d16f0d6d53c",
-    "url": "/recipe-box/static/css/main.5520ecb3.chunk.css"
+    "revision": "9b99dc44d36d5a71c790",
+    "url": "/recipe-box/static/css/main.1761bcae.chunk.css"
   },
   {
-    "revision": "2ab3d3965f89f56839de",
-    "url": "/recipe-box/static/js/2.df3c0705.chunk.js"
+    "revision": "bfae5ea4dd57c03f3244",
+    "url": "/recipe-box/static/js/2.a3bdca52.chunk.js"
   },
   {
     "revision": "f231859d6585c4cd5f80c344783ed269",
-    "url": "/recipe-box/static/js/2.df3c0705.chunk.js.LICENSE.txt"
+    "url": "/recipe-box/static/js/2.a3bdca52.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "11a786295d16f0d6d53c",
-    "url": "/recipe-box/static/js/main.614e16d9.chunk.js"
+    "revision": "9b99dc44d36d5a71c790",
+    "url": "/recipe-box/static/js/main.b479bd53.chunk.js"
   },
   {
     "revision": "34b673932c5f5785b601",
